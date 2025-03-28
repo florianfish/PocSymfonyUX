@@ -21,6 +21,7 @@
                 "nadim-vscode.twig-code-snippets", /* Twig code snippets */
                 "ms-vscode.makefile-tools", /* Makefile Tools */
                 "TheNouillet.symfony-vscode", /* Symfony VSCode */
+                "github.vscode-github-actions", /* Github Actions */
                 "continue.continue" /* Continue.dev to use Neogen */
             ]
         }
