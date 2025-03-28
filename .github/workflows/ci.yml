@@ -1,0 +1,48 @@
+name: CI Symfony 7
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: mbstring, xml, ctype, iconv, pdo_mysql, curl, json, tokenizer, dom, fileinfo, pcntl, bcmath, gd, intl, zip
+        ini-values: memory_limit=512M
+        tools: composer:v2
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-interaction --no-scripts
+
+    #- name: Setup Node.js
+    #  uses: actions/setup-node@v3
+    #  with:
+    #    node-version: '16'
+
+    #- name: Install JavaScript dependencies
+    #  run: npm install
+
+    #- name: Build JavaScript
+    #  run: npm run build
+
+    #- name: Run PHPStan
+    #  run: composer require --dev phpstan/phpstan && ./vendor/bin/phpstan analyse src --level=8
+
+    #- name: Run ESLint
+    #  run: npm install eslint --save-dev && ./node_modules/.bin/eslint src
+
+    - name: Run Symfony tests
+      run: composer run-script test
