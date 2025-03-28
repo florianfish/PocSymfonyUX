@@ -38,4 +38,7 @@ return [
     'jquery' => [
         'version' => '3.7.1',
     ],
+    'chart.js' => [
+        'version' => '3.9.1',
+    ],
 ];
