@@ -1,0 +1,32 @@
+{
+    // Version of the configuration schema
+    "version": "0.2.0",
+    // List of configurations
+    "configurations": [
+        {
+            // Name of the configuration
+            "name": "Listen for XDebug",
+            // Type of debugger
+            "type": "php",
+            // Request type
+            "request": "launch",
+            // Port to listen for XDebug
+            "port": 9003,
+            // Path mappings between local and remote files
+            "pathMappings": {
+                "/workspace": "${workspaceFolder}"
+            },
+            // XDebug specific settings
+            "xdebugSettings": {
+                // Maximum amount of variable data to be retrieved
+                "max_data": 65535,
+                // Show hidden properties
+                "show_hidden": 1,
+                // Maximum number of array children and object properties to be retrieved
+                "max_children": 100,
+                // Maximum depth of nested structures to be retrieved
+                "max_depth": 5
+            }
+        }
+    ]
+}
