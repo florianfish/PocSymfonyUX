@@ -22,7 +22,8 @@
                 "ms-vscode.makefile-tools", /* Makefile Tools */
                 "TheNouillet.symfony-vscode", /* Symfony VSCode */
                 "github.vscode-github-actions", /* Github Actions */
-                "continue.continue" /* Continue.dev to use Neogen */
+                "continue.continue", /* Continue.dev to use Neogen */
+                "Vue.volar" /* VueJS */
             ]
         }
     },
