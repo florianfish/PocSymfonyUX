@@ -1,0 +1,40 @@
+name: NeoGen
+version: 1.0.0
+schema: v1
+models:
+  - name: NeoGen Coder L
+    provider: openai
+    model: neogen-coder-l
+    apiKey: APIKEY
+    apiBase: https://91.134.30.165/api/
+    env:
+      useLegacyCompletionsEndpoint: false
+    roles:
+      - chat
+      - edit
+
+  - name: NeoGen Coder M
+    provider: openai
+    model: neogen-coder-m
+    apiKey: APIKEY
+    apiBase: https://91.134.30.165/api/
+    env:
+      useLegacyCompletionsEndpoint: false
+    roles:
+      - chat
+      - edit
+      - autocomplete
+
+tabAutocompleteModel:
+  - title: NeoGen Coder M
+  - provider: openai
+  - model: neogen-coder-m
+
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase

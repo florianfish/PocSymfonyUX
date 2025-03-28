@@ -28,5 +28,6 @@
     "forwardPorts": [
         "dev:8000",
         "mailer:8025"
-    ]
+    ],
+    "postCreateCommand": "bash .devcontainer/setup.sh"
 }
