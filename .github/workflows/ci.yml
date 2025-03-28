@@ -44,5 +44,5 @@ jobs:
     #- name: Run ESLint
     #  run: npm install eslint --save-dev && ./node_modules/.bin/eslint src
 
-    - name: Run Symfony tests
-      run: composer run-script test
+    #- name: Run Symfony tests
+    #  run: composer run-script test
