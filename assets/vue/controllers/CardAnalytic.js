@@ -22,10 +22,5 @@ export default defineComponent({
                 <h1 class="mt-1 mb-3">{{ value }}</h1>
             </div>
         </div>
-    `,
-    methods: {
-        formattedAmount() {
-            return this.amount.toLocaleString('fr-FR');
-        }
-    }
+    `
 });
