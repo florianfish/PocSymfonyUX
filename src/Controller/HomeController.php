@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Form\AutocompleteExempleType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -15,8 +16,8 @@ use Symfony\UX\Map\Point;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(ChartBuilderInterface $chartBuilder): Response
+    #[Route('/', name: 'app_charts')]
+    public function charts(ChartBuilderInterface $chartBuilder): Response
     {
         // Chart with Charjs
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
@@ -32,6 +33,15 @@ class HomeController extends AbstractController
             ],
         ]);
 
+        return $this->render('home/charts.html.twig', [
+            'controller_name' => 'HomeController',
+            'chart' => $chart
+        ]);
+    }
+
+    #[Route('/maps', name: 'app_maps')]
+    public function maps(): Response
+    {
         // Map
         $map = (new Map('default'))
             ->center(new Point(45.7534031, 4.8295061))
@@ -74,10 +84,29 @@ class HomeController extends AbstractController
                 ))
             );
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/maps.html.twig', [
             'controller_name' => 'HomeController',
-            'chart' => $chart,
-            'map' => $map,
+            'map' => $map,            
+        ]);
+    }
+
+    #[Route('/vuejs_components', name: 'app_vuejs')]
+    public function vuejs(): Response
+    {
+        return $this->render('home/vuejs.html.twig', [
+            'controller_name' => 'HomeController'      
+        ]);
+    }
+
+    #[Route('/autocomplete', name: 'app_autocomplete')]
+    public function autocomplete(): Response
+    {
+        ## https://symfony.com/bundles/ux-autocomplete/current/index.html
+        $form = $this->createForm(AutocompleteExempleType::class);
+
+        return $this->render('home/autocomplete.html.twig', [
+            'controller_name' => 'HomeController',
+            'form' => $form->createView(),
         ]);
     }
 }

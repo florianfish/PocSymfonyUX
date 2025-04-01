@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+	<div class="container-fluid p-0">
+		<h1 class="h3 mb-3">Symfony UX Vue.js</h1>
+
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card flex-fill w-100">
+					<div class="row">
+						<div class="col-sm-6">
+							<div {{ vue_component('CardAnalytic', { 'title': 'Ventes', 'icon': 'truck', 'value': '22 588 €' }) }}></div>
+							<div {{ vue_component('CardAnalytic', { 'title': 'Visiteurs', 'icon': 'users', 'value': '14 212' }) }}></div>
+						</div>
+						<div class="col-sm-6">
+							<div {{ vue_component('CardAnalytic', { 'title': 'CA', 'icon': 'dollar-sign', 'value': '12 158 €' }) }}></div>
+							<div {{ vue_component('CardAnalytic', { 'title': 'Commandes', 'icon': 'shopping-cart', 'value': '658' }) }}></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+
